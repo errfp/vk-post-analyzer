@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 VK_TOKEN = os.getenv("VK_TOKEN")
-PAGE_ID = 'eeoneguy'
+PAGE_ID = 'YOUR_ID'
 POST_COUNT = 100
 
 vk_session = vk_api.VkApi(token=VK_TOKEN)
@@ -48,5 +48,6 @@ df = df.sort_values(by='date').reset_index(drop=True)
 df['interval_hours'] = df['date'].diff().dt.total_seconds() / 3600
 df['interval_hours'].fillna(0, inplace=True)
 df.to_csv('posts.csv', index=False)
+
 
 print("Данные успешно сохранены в файл posts.csv")
